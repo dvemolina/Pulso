@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/login.css">
+    <link rel="stylesheet" href="../styles/modals-login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="../assets/favicon-logo.png" type="image/x-icon">
+    <title>Acceso Instructores</title>
+</head>
+
+<body>
+    <form id="login-form" action="https://pulso-proxy.netlify.app/.netlify/functions/proxy/login">
+        <div class="login-wrapper">
+            <div class="login-box">
+                <div class="login-logo"></div>
+
+                <div class="input-container">
+                    <i class="fas fa-mountain"></i>
+                    <input type="text" class="login-id" placeholder="ID Pulso">
+                </div>
+                <div class="input-container">
+                    <i class="fas fa-key"></i>
+                    <input type="password" class="login-pwd" placeholder="Contraseña">
+                </div>
+                <div id="error-msg" class="login-error"></div>
+                <button type="submit" class="login-btn">Accede</button>
+            </div>
+        </div>
+    </form>
+
+    <a href="#" class="login-recover">
+        <p>¡He Olvidado mi Contraseña!</p>
+    </a>
+    <div class="modal-backdrop"></div>
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <span id="error-close" class="modal-close">&times;</span>
+            <div class="error">
+                <h2>¡Oops!</h2>
+            </div>
+            <div id="modalMessage">
+                <p id="errorMessage">¡Algo no funcionó bien!</p>
+                <p class="server-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop"></div>
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span id="success-close" class="modal-close">&times;</span>
+            <div class="success-loader"></div>
+            <div id="modalMessage">
+                <p id="successMessage">¡Todo listo!</p>
+                <p class="server-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop"></div>
+    <div id="loadingModal" class="modal">
+        <div class="modal-content">
+            <div class="loader"></div>
+            <div id="modalMessage">
+                <p id="loadingMessage">En proceso...</p>
+                <p class="server-message"></p>
+            </div>
+        </div>
+    </div>
+    <script src="../scripts/login.js"></script>
+</body>
+
+</html>

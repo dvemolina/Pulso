@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesional</title>
+    <link rel="stylesheet" href="../styles/profile_instructor.css">
+    <link rel="stylesheet" href="../styles/bookings.css">
+    <link rel="stylesheet" href="../styles/review.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="shortcut icon" href="../assets/favicon-logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <main id="main">
+        <section class="avatar-section">
+            <div class="avatar-container">
+                <img id="avatar-img" src="" alt="Imagen de Perfil">
+                <div id="avatar-content-wrapper">
+                    <div id="avatar-text-content">
+                        <div>
+                            <h3 id="avatar-name"></h3>
+                        </div>
+                        <div id="avatar-location-div">
+                            <ion-icon name="location-outline"></ion-icon>
+                            <p id="avatar-location"></p>
+                        </div>
+                        <div id="prices-container">
+                            <div class="price-div">
+                                <p class="cabecera-lista">Hora Base 1h - <span class="dynamic-price"
+                                        id="avatar-price-hour"></span></p>
+                                <p class="cabecera-lista">Medio Dia 3h - <span class="dynamic-price"
+                                        id="avatar-price-half"></span></p>
+                                <p class="cabecera-lista">Dia Entero 6h - <span class="dynamic-price"
+                                        id="avatar-price-full"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-container">
+                        <button id="book-btn" class="cta-btn">Reservar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="profile-section">
+            <div class="profile-info-container">
+
+                <div id="profile-banner"></div>
+                <div id="services-section">
+                    <div class="titulo-section ts-servicios">
+                        <img src="./assets/logo-slim.png" alt="">
+                        <h2>Mis Servicios</h2>
+                    </div>
+
+                    <div id="services">
+                        <div id="services-sports">
+                            <div id="sports-icons">
+                                <div class="sport-div" id="ski-div">
+                                    <div class="sport-item">
+                                        <img class="sport-img" src="./assets/skier-icon-pixel.png" alt="">
+                                        <p>Ski</p>
+                                    </div>
+                                    <div id="ski-mods" class="mods-item">
+
+                                    </div>
+                                </div>
+                                <div class="sport-div" id="snowboard-div">
+                                    <div class="sport-item">
+                                        <img class="sport-img" src="./assets/snowboarder-icon-pixel.png" alt="">
+                                        <p>Snowboard</p>
+                                    </div>
+                                    <div id="snowboard-mods" class="mods-item">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="services-description">
+                            <h4>Descripción Servicios</h4>
+                            <div id="services-txt"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detalles-parent">
+                    <div class="detalles-contenido ">
+                        <div class="titulo-section ts-detalles">
+                            <img src="./assets/logo-slim.png" alt="">
+                            <h2>Mis Detalles</h2>
+                        </div>
+                        <div id="detalles-lista">
+                            <li><span class="cabecera-lista">Temporadas Experiencia:</span> <span id="seasons"></span>
+                            </li>
+                            <li><span class="cabecera-lista">Idiomas:</span> <span id="languages"></span></li>
+                            <li><span class="cabecera-lista">Titulación:</span> <span id="qualification"></span></li>
+                            <li><span class="cabecera-lista">Asociación:</span> <span id="association"></span></li>
+                            <li><span class="cabecera-lista">Edades:</span> <span id="age-group"></span></li>
+                            <li><span class="cabecera-lista">Nivel:</span> <span id="client-level"></span></li>
+                            <li><span class="cabecera-lista">Montaña Local:</span> <span id="resort"></span></li>
+                        </div>
+                    </div>
+                    <div id="detalles-galeria">
+                        <img src="./assets/chalten.jpg" alt="">
+                    </div>
+                </div>
+
+                <div id="tagline-presentacion">
+                    <h3 id="tagline">"Mi pasión por la montaña es el motor de mi vida. Viajo por todo el mundo para
+                        poder disfrutar
+                        de la nieve todo el año. Compartir mis experiencias con los demás es mi forma de devolver todo
+                        lo que esos lugares me han aportado"</h3>
+                </div>
+
+                <div id="reviews-container">
+                    <div class="titulo-section">
+                        <img src="./assets/logo-slim.png" alt="">
+                        <h2>Qué opinan mis alumnos</h2>
+                    </div>
+                    <div id="reviews-contenido">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <dialog id="booking-dialog">
+            <img id="logo-dialog" src="./assets/favicon-logo.png" alt="">
+            <div id="first-step-booking">
+                <div class="dialog-header">
+                    <h2>Bloques de Reserva Disponibles</h2>
+                    <p>Selecciona los bloques de 1 hora disponibles que te gustaría reservar</p>
+                    <p id="example-booking">Ejemplo: Bloque de las 11:00 => Reserva de 11:00 a 12:00</p>
+                </div>
+                <div id="booking-dates"></div>
+                <div class="booking-dialog-buttons" id="buttons-first-step">
+                    <button class="dialog-btn close-btn-dialog">Cancelar</button>
+                    <button class="dialog-btn next-btn-dialog">Siguiente</button>
+                </div>
+            </div>
+            <div id="second-step-booking">
+                <div class="dialog-header">
+                    <h2>Rellena los datos para la Reserva</h2>
+                    <p>Completa tus datos y responde a la preguntas para que el instructor se pueda adaptar a tus
+                        necesidades</p>
+                </div>
+                <form id="form-div" action="" method="post">
+                    <div id="client-data">
+                        <div id="student-section">
+                            <h3>1. Detalles Personales Alumnos</h3>
+                            <div class="detail-group">
+                                <label for="students_amount">Nº de Alumnos</label>
+                                <input id="students_amount" type="number" name="students_amount" min="1">
+                            </div>
+                            <div id="student-details-section">
+                                <div id="students-wrapper">
+                                    <fieldset class="student-details">
+                                        <div class="detail-group">
+                                            <label for="student_name">Nombre Alumno</label>
+                                            <input type="text" name="student_name" class="student_name"
+                                                placeholder="Nombre">
+                                        </div>
+                                        <div class="detail-group">
+                                            <label for="student_surname">Apellidos Alumno</label>
+                                            <input type="text" name="student_surname" class="student_surname"
+                                                placeholder="Apellidos">
+                                        </div>
+                                        <div class="detail-group">
+                                            <label for="student_age">Edad Alumno</label>
+                                            <input class="student_age" type="number" name="student_age" min="1">
+                                        </div>
+                                        <div class="detail-group">
+                                            <label for="student_level">Nivel Alumno</label>
+                                            <select class="student_level">
+                                                <option value="">Selecciona Nivel</option>
+                                                <option value="Sin nivel indicado">No estoy seguro/a de mi nivel
+                                                </option>
+                                                <option value="Primera Vez">Primera Vez</option>
+                                                <option value="Iniciado">Iniciado</option>
+                                                <option value="Principiante">Principiante</option>
+                                                <option value="Intermedio">Intermedio</option>
+                                                <option value="Avanzado">Avanzado</option>
+                                                <option value="Experto">Experto</option>
+                                                <option value="Tecnificación">Tecnificación</option>
+                                            </select>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <button id="add-student-details">Añadir Alumno Extra</button>
+                                <p style=" font-size: 14px;">¿No conoces tu nivel? <a href="#">Entra aquí</a></p>
+                            </div>
+                        </div>
+                        <div id="client-section">
+                            <h3>2. Datos Contacto Reserva</h3>
+                            <div id="client-details-data">
+                                <div class="detail-group main-client-fields">
+                                    <label for="client_name">Nombre Reserva</label>
+                                    <input type="text" name="client_name" id="client_name" placeholder="Nombre">
+                                </div>
+                                <div class="detail-group main-client-fields">
+                                    <label for="client_surname">Apellidos Reserva</label>
+                                    <input type="text" name="client_surname" id="client_surname"
+                                        placeholder="Apellidos">
+                                </div>
+                                <div class="detail-group main-client-fields">
+                                    <label for="client_email">Email Reserva</label>
+                                    <input type="email" name="client_email" id="client_email"
+                                        placeholder="Introduce tu Email">
+                                </div>
+                            </div>
+                            <div id="client-goals-data">
+                                <div class="detail-group">
+                                    <label for="client_goals">Objetivos y expectativas</label>
+                                    <textarea rows="5" class="textarea-custom" id="client_goals" name="client_goals"
+                                        placeholder="¿Qué te gustaría obtener de la Sesión? Cuáles son tus objetivos y/o expectativas?"></textarea>
+                                </div>
+                                <div class="detail-group">
+                                    <label for="client_other">Experiencias Previas</label>
+                                    <textarea rows="5 class=" textarea-custom" id="client_other" name="client_other"
+                                        placeholder="Explica brevemente tus experiencias previas en la nieve o cualquier cosa que te gustaría compartir con el Instructor"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="booking-dialog-buttons" id="buttons-second-step">
+                        <button class="dialog-btn close-btn-dialog" id="step-back-dialog">Atrás</button>
+                        <button class="dialog-btn next-btn-dialog" id="submit-booking" type="submit">Continuar</button>
+                    </div>
+                </form>
+
+            </div>
+            <div id="third-step-booking-wrapper">
+                <div id="third-step-booking">
+                    <div class="dialog-header">
+                        <h2>Confirma tu Petición de Reserva</h2>
+                        <p>Revisa y confirma los datos en la Petición de Reserva que se enviará al Instructor</p>
+                    </div>
+                    <div id="booking-details-review">
+
+                    </div>
+                    <div class="booking-dialog-buttons" id="buttons-third-step">
+                        <button class="dialog-btn close-btn-dialog" id="last-step-back-dialog">Atrás</button>
+                        <button class="dialog-btn next-btn-dialog" id="confirm-booking">Confirmar y Enviar</button>
+                    </div>
+                </div>
+                <div id="send-booking-loader">
+                    <div id="booking-loader-wrapper">
+                        <div id="booking-loader">
+                            <img class="logo-dialog-booking" src="./assets/favicon-logo.png" alt="">
+                        </div>
+                        <h2 id="booking-loader-msg">Enviando Solicitud al Instructor...</h2>
+                    </div>
+                </div>
+            </div>
+            <h4 id="error-booking-msg"></h4>
+        </dialog>
+    </main>
+    <script src="../scripts/profile-instructor.js"></script>
+    <script src="../scripts/bookings.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

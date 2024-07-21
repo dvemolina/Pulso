@@ -1,0 +1,410 @@
+/*-----------LOADER-----------*/
+#booking-loader-wrapper {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: display 0.6s ease-in-out;
+    gap: 15px
+}
+#booking-loader {
+    width: 70px;
+    height: 70px;
+    border: none;
+    animation: spin 2.8s linear infinite;
+    
+}
+.logo-dialog-booking {
+    width: 70px;
+    height: 70px;
+}
+#booking-loader-msg {
+    color: black;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/*-----------DIALOG-----------*/
+
+#booking-dialog {
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    hyphens: auto;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.137);
+    padding: 35px;
+}
+#booking-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.696);
+}
+
+#logo-dialog {
+    max-width: 70px;
+    max-height: 70px;;
+}
+
+#first-step-booking {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    border: none;
+    text-align: center;
+    hyphens: auto;
+    gap: 20px;
+    width: 100%
+}
+    #example-booking {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.597);
+    }
+    .date-booking {
+        border: 0.1px solid rgba(128, 128, 128, 0.125);
+        border-radius: 7px;
+        display: grid;
+        grid-template-columns: 0.5fr 3fr;
+        grid-template-rows: auto;
+        padding: 10px;
+        margin: 5px;
+        box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.095);
+    }
+
+    .date-booking:hover {
+        box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.133);
+    }
+
+    .week-day-booking {
+        grid-column: 1 / 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .slots-booking {
+        grid-column: 2 / 4;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+    }
+
+    .slot-hidden-checkbox {
+        display: none;
+    }
+    /* Style the label as a button */
+    .slot-label-free, .slot-label-else {
+        display: inline-block;
+        padding: 0.8rem 1.1rem;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        user-select: none; /* Prevent text selection */
+        transition: background-color 0.3s;
+        width: 90%;
+    }
+    
+    .slot-label-free {
+        background-color: #579a6e8a;
+    }
+    .slot-label-else {
+        background-color: rgb(211, 169, 157);
+    }
+    
+    /* Style for the "pressed" state when checkbox is checked */
+    .slot-hidden-checkbox:checked + .slot-label-free {
+        background-color: #297443;
+    }
+    .slot-hidden-checkbox:checked + .slot-label-else {
+        background-color: rgb(238, 55, 5);
+    }
+    
+    /* Hover state */
+    .slot-label-free:hover {
+        background-color: #2e844ca9;
+    }
+    .slot-label-else:hover {
+        background-color: rgb(211, 169, 157);
+    }
+    
+    .dialog-btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 7px;
+        padding: 10px 30px;
+        font-size: 17px;
+        font-weight: 600;
+        border: none;
+        border-radius: 56px;
+        cursor: pointer;
+    }
+    .booking-dialog-buttons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+        .close-btn-dialog{
+            padding: 4px 15px;
+            background-color:rgba(158, 157, 155, 0.704);
+            color: #fffffffc;
+            transition: background-color 0.1s ease-in-out;
+        }
+        .next-btn-dialog{
+            border-radius: 7px;
+            background-color: rgba(71, 113, 71, 0.879);
+            color: white; 
+            transition: background-color 0.1s ease-in-out;
+        }
+        .close-btn-dialog:hover {
+            background-color:rgb(177, 175, 173);
+        }
+        .next-btn-dialog:hover {
+            background-color: rgb(40, 89, 40);
+        }
+   
+        #second-step-booking {
+            display: none;
+            flex-direction: column;
+        }
+            #client-data {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+                gap: 60px;
+                justify-content: space-around;
+                padding: 30px;
+            }
+
+            #student-section,  #client-section {
+                display: flex;
+                flex-direction: column;
+                border: 0.2px solid rgba(128, 128, 128, 0.123);
+                box-shadow: 3px 3px 3px rgba(103, 102, 102, 0.066);
+                border-radius: 7px;
+                padding: 20px;
+            }
+            #student-section:hover,  #client-section:hover {
+                box-shadow: 3px 3px 5px rgba(63, 62, 62, 0.096);
+
+            }
+            #student-section {
+                grid-column: 1 / 2;
+            }
+                #student-details-section {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                } 
+
+                    #students-wrapper {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+                        .student-details {
+                            display: flex;
+                            flex-direction: column;
+                            padding: 5px;
+                            border: 0.3px dotted grey;
+                            border-radius: 7px;
+                            text-align: left;
+                        }
+                        .student-details button {
+                            justify-self: center;
+                            align-self: center;
+                            border: none;
+                            border-radius: 7px;
+                            padding: 5px 10px;
+                            background-color: #cc483f2f;
+                            color: rgb(86, 83, 83);
+                            font-weight: 500;
+                        }
+                        .student-details button:hover {
+                            background-color: #cc483fd1;
+                            color: rgb(255, 255, 255);
+                            cursor: pointer;
+                        }
+                    #add-student-details {
+                        border: none;
+                        border-radius: 7px;
+                        padding: 7px 15px;
+                        background-color: #1a4e2f59;
+                        color: rgb(255, 255, 255);
+                        font-weight: 600;
+                    }
+                    #add-student-details:hover {
+                        background-color: #1a5a34d6;
+                        cursor: pointer;
+                    }
+                    
+                #client-section {
+                    grid-column: 2 / 3;
+                }   
+                    #client-details-data, #client-goals-data {
+                        display: flex;
+                        flex-direction: column;
+                        
+                    } 
+                    .main-client-fields {
+                        text-align: left;
+                    }
+                    .textarea-custom{
+                        height: 100%;
+                    }
+            .detail-group {
+                display: flex;
+                flex-direction: column;
+                margin: 10px;
+            }
+            .detail-group label {
+                font-size: 14px;
+            }
+            .detail-group input, .detail-group select, .detail-group textarea  {
+                padding: 3px;
+                border-radius: 5px;
+                border: 0.1px solid rgba(0, 0, 0, 0.297);
+            }
+    
+        #third-step-booking  {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+        }  
+        #third-step-booking fieldset {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+            border: 0.3px dotted grey;
+            border-radius: 7px;
+            gap: 5px;
+        }
+            #details-date-list {
+                text-align: left;
+                list-style-position: inside;
+            }
+            .details-semibold {
+                font-weight: 600;
+            }
+            .details-bold {
+                font-weight: 700;
+            }
+
+#error-booking-msg {
+    display: none;
+    color: #cc483f;
+    margin-top: 20px;
+}
+
+@media (max-width: 800px) {
+    .slot-label-free, .slot-label-else {
+        padding: 0.6rem 0.9rem;
+        font-size: 0.8rem;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        user-select: none; /* Prevent text selection */
+        transition: background-color 0.3s;
+    }
+    .week-day-booking {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 735px) {
+    #client-data {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        justify-content: space-around;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 650px) {
+    #first__search__container{
+        padding: 0.7rem
+    }
+    .first__search__icon{
+        max-width: 60px;
+        max-height: 60px;
+    }
+    .first__search__group h2 {
+        font-size: 1.3rem;
+    }
+    .first__search__select {
+        padding: 6px 10px;
+    }
+    .custom-date-placeholder {
+        font-size: 0.9rem
+    }
+
+    #booking-dialog {
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    #logo-dialog {
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    #first-step-booking {
+        gap: 15px;
+    }
+    #first-step-booking h2, #second-step-booking h2, #third-step-booking h2 {
+        font-size: large;
+    }
+    #first-step-booking p, #second-step-booking p, #third-step-booking p {
+        font-size: small;
+    }
+
+    .date-booking {
+        grid-template-columns: 1fr 3fr;
+        padding: 15px;
+        margin: 10px 0;
+    }
+
+    .slots-booking {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .slot-label-free, .slot-label-else {
+        padding: 0.6rem 0.8rem;
+        font-size: 14px;
+        width: 90%;
+    }
+
+    .dialog-btn {
+        padding: 10px 35px;
+        font-size: 14px;
+    }
+
+    .booking-dialog-buttons {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+      
+    .close-btn-dialog {
+        padding: 0.2rem 0.8rem;
+    }
+
+    
+}

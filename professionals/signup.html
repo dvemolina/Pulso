@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitud Registro Instructores</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../styles/signup.css">
+  <link rel="shortcut icon" href="../assets/favicon-logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <div id="pseudo-header">
+        <img id="signup-logo" src="../assets/logo-slim.png" alt="Pulso de Nieve Logo">
+        <h1>Solicitud Profesional Pulso de Nieve</h1>
+        <h2>Completa el siguiente formulario para realizar tu solicitud de ingreso en la plataforma de Pulso.
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">
+              <div class="progress">
+                <div class="progress-bar progress-bar progress-bar-animated bg-success" role="progressbar"
+                  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form id="signup-form" action="" method="POST" enctype="multipart/form-data">
+                <div class="form-step">
+                  <h4>Detalles Personales</h4>
+                  <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <p class="info-text">Se mostrará en tu Perfil a los Clientes. Puedes cambiarlo posteriormente.</p>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName_first">Primer Apellido</label>
+                    <input type="text" class="form-control" id="lastName_first" name="surname" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName_second">Segundo Apellido</label>
+                    <input type="text" class="form-control" id="lastName_second" name="last_surname">
+                  </div>
+                  <div class="form-group">
+                    <label for="birth_date">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="birth_date" name="birth_date" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <p class="info-text">Si quieres total integración con los servicios de Pulso te recomendamos usar
+                      una
+                      dirección de Google Gmail</p>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <div id="email-invalid-feedback" class="invalid-feedback"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <p class="info-text">Solo se utilizará para que el cliente contacte contigo<br>Introduce tu
+                      teléfono
+                      con el código de país.<br> Ej: (+54)2944796568</p>
+                    <input type="tel" class="form-control" id="phone" name="phone">
+                    <div id="phone-invalid-feedback" class="invalid-feedback"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">Contraseña</label>
+                    <div class="input-group">
+                      <input type="password" class="form-control" id="pwd" name="pwd" required>
+                      <div class="input-group-append">
+                        <button class="btn btn-light" type="button" id="toggle-pwd">
+                          <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="confirm-pwd">Confirmar Contraseña</label>
+                    <div class="input-group">
+                      <input type="password" class="form-control" id="confirm-pwd" required>
+                      <div class="input-group-append">
+                        <button class="btn btn-light" type="button" id="toggle-confirm-pwd">
+                          <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="invalid-feedback" id="pwd-mismatch" style="display: none;">
+                    Las contraseñas no coinciden.
+                  </div>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-success next-step-btn">Siguiente</button>
+                  </div>
+                </div>
+
+                <div class="form-step d-none">
+                  <h4>Detalles Profesionales</h4>
+                  <p class="info-text">Selecciona los Deportes y sus Disciplinas que ofreces en tus
+                    Servicios<br>Recuerda
+                    que para disciplinas como Freeride, Travesía y similares necesitas formación específica. Es tu
+                    responsabilidad cumplir con la legislación, coberturas y normativas vigentes para ofrecer estos
+                    servicios con garantías de seguridad para la vida de tus clientes y la tuya</p>
+                  <div class="form-group">
+                    <label for="sports">Deportes</label>
+                    <div class="form-check">
+                      <input type="checkbox" id="sport-esqui" name="sports[]" value="Ski">
+                      <label for="sport-esqui">Esquí</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="sport-snowboard" name="sports[]" value="Snowboard">
+                      <label for="sport-snowboard">Snowboard</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="sport-telemark" name="sports[]" value="Telemark">
+                      <label for="sport-telemark">Telemark</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="sport-fondo" name="sports[]" value="Fondo">
+                      <label for="sport-fondo">Esquí de Fondo</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Disciplina Esquí</label>
+                    <div class="form-check">
+                      <input type="checkbox" id="disciplina-esqui-alpino" name="mod_ski[]" value="Alpino">
+                      <label for="disciplina-esqui-alpino">Alpino</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="disciplina-esqui-freeride" name="mod_ski[]" value="Freeride">
+                      <label for="disciplina-esqui-freeride">Freeride</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="disciplina-esqui-freestyle" name="mod_ski[]" value="Freestyle">
+                      <label for="disciplina-esqui-freestyle">Freestyle</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="disciplina-esqui-travesia" name="mod_ski[]" value="Touring">
+                      <label for="disciplina-esqui-travesia">Travesía</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="disciplina-esqui-adaptado" name="mod_ski[]" value="Adaptado">
+                      <label for="disciplina-esqui-adaptado">Adaptado</label>
+                    </div>
+
+                  </div>
+                  <div class="form-group">
+                    <label>Disciplina Snowboard</label>
+                    <div class="form-check">
+                      <input type="checkbox" id="disciplina-snowboard-alpino" name="mod_snowboard[]" value="Alpino">
+                      <label for="disciplina-snowboard-alpino">Alpino</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="disciplina-snowboard-freeride" name="mod_snowboard[]" value="Freeride">
+                      <label for="disciplina-snowboard-freeride">Freeride</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="disciplina-snowboard-freestyle" name="mod_snowboard[]"
+                        value="Freestyle">
+                      <label for="disciplina-snowboard-freestyle">Freestyle</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="disciplina-snowboard-travesia" name="mod_snowboard[]" value="Touring">
+                      <label for="disciplina-snowboard-travesia">Travesía</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="disciplina-snowboard-adaptado" name="mod_snowboard[]" value="Adaptado">
+                      <label for="disciplina-snowboard-adaptado">Adaptado</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="localizacion">Localización (Centro)</label>
+                    <select class="form-control" id="localizacion" name="resort" required>
+                      <option value="">Selecciona tu Centro</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="idiomas">Idiomas</label>
+                    <div class="form-check">
+                      <input type="checkbox" id="spanish" value="Español" name="languages[]">
+                      <label for="spanish">Español</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="english" value="Inglés" name="languages[]">
+                      <label for="english">Inglés</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="portuguese" value="Portugués" name="languages[]">
+                      <label for="portuguese">Portugués</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="german" value="Alemán" name="languages[]">
+                      <label for="german">Alemán</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="french" value="Francés" name="languages[]">
+                      <label for="french">Francés</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="italian" value="Italiano" name="languages[]">
+                      <label for="italian">Italiano</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="russian" value="Ruso" name="languages[]">
+                      <label for="russian">Ruso</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="japanese" value="Japonés" name="languages[]">
+                      <label for="japanese">Japonés</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="mandarin" value="Mandarín" name="languages[]">
+                      <label for="mandarin">Mandarín (Chino)</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="finnish" value="Finlandés" name="languages[]">
+                      <label for="finnish">Finlandés</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="swedish" value="Sueco" name="languages[]">
+                      <label for="swedish">Sueco</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="catalan" value="Catalán" name="languages[]">
+                      <label for="catalan">Catalán</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="basque" value="Euskera" name="languages[]">
+                      <label for="basque">Euskera (Vasco)</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="galician" value="Gallego" name="languages[]">
+                      <label for="galician">Gallego</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="temporadas">Nº Temporadas</label>
+                    <input type="number" class="form-control" id="temporadas" name="season_num" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="titulacion">Titulación</label>
+                    <select class="form-control" id="titulacion" name="qualification" required>
+                      <option value="">Selecciona tu Nivel</option>
+                      <option value="1">Nivel 1 o Equivalente</option>
+                      <option value="2">Nivel 2 o Equivalente</option>
+                      <option value="3">Nivel 3 o Equivalente</option>
+                      <option value="4">Nivel 4 o Equivalente</option>
+                      <option value="5">Nivel 5 o Equivalente</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="association">Asociación</label>
+                    <select class="form-control" id="association" name="association" required>
+                      <option value="">Selecciona tu Asociación</option>
+                      <option value="AADIDES">AADIDES</option>
+                      <option value="AEPEDI">AEPEDI</option>
+                      <option value="BASI">BASI</option>
+                      <option value="NZSIA">NZSIA</option>
+                      <option value="AAME">AAME</option>
+                      <option value="APSI">APSI</option>
+                      <option value="CSIA">CSIA</option>
+                      <option value="DAPSI">DAPSI</option>
+                      <option value="SIA">SIA</option>
+                      <option value="PZN">PZN</option>
+                      <option value="SSSA/SBFI">SSSA/SBFI</option>
+                      <option value="ISTD">ISTD</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="documentoTitulacion">Documento Titulación</label>
+                    <p class="info-text">Archivo en formato PDF</p>
+                    <input type="file" class="form-control-file" id="documentoTitulacion" name="qualification_document"
+                      accept="application/pdf" required>
+                    <div id="documentoTitulacion-invalid-feedback" class="invalid-feedback">El archivo solo puede ser
+                      .pdf
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-primary prev-step-btn">Anterior</button>
+                    <button type="button" class="btn btn-success next-step-btn">Siguiente</button>
+                  </div>
+                </div>
+                <div class="form-step d-none">
+                  <h4>Disponibilidad General</h4>
+                  <div class="form-group">
+                    <label for="fecha-inicio-temporada">Fecha Inicio Temporada</label>
+                    <input type="date" class="form-control" id="fecha-inicio-temporada" name="season_start" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="fecha-final-temporada">Fecha Final Temporada</label>
+                    <input type="date" class="form-control" id="fecha-final-temporada" name="season_end" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="hora-inicio-jornada">Hora Inicio Jornada</label>
+                    <select class="form-control" id="hora-inicio-jornada" name="day_start" required></select>
+                  </div>
+                  <div class="form-group">
+                    <label for="hora-final-jornada">Hora Final Jornada</label>
+                    <select class="form-control" id="hora-final-jornada" name="day_end" required></select>
+                  </div>
+                  <div class="form-group">
+                    <label>Días Semana</label>
+                    <div class="form-check">
+                      <input type="checkbox" id="dia-lunes" value="Lunes" name="week_days[]">
+                      <label for="dia-lunes">Lunes</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="dia-martes" value="Martes" name="week_days[]">
+                      <label for="dia-martes">Martes</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="dia-miercoles" value="Miércoles" name="week_days[]">
+                      <label for="dia-miercoles">Miércoles</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="dia-jueves" value="Jueves" name="week_days[]">
+                      <label for="dia-jueves">Jueves</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="dia-viernes" value="Viernes" name="week_days[]">
+                      <label for="dia-viernes">Viernes</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="dia-sabado" value="Sábado" name="week_days[]">
+                      <label for="dia-sabado">Sábado</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" id="dia-domingo" value="Domingo" name="week_days[]">
+                      <label for="dia-domingo">Domingo</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="divisa-principal">Divisa Principal</label>
+                    <p>Selecciona tu divisa principal. En tus servicios podrás añadir si deseas aceptar varias divisas
+                    </p>
+                    <select class="form-control" id="divisa-principal" name="currency_main" required>
+                      <option value="">Selecciona tu divisa principal</option>
+                      <option value="ARS">ARS</option>
+                      <option value="USD">USD</option>
+                      <option value="EUR">EUR</option>
+                      <option value="GBP">GBP</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="precio-hora-basico">Precio Hora Básico (1h)</label>
+                    <input type="number" class="form-control" id="precio-hora-basico" name="price_hour" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="precio-dia-medio-basico">Precio Medio Dia Básico (3h)</label>
+                    <input type="number" class="form-control" id="precio-dia-medio-basico" name="price_half" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="precio-dia-entero-basico">Precio Día Entero Básico (6h)</label>
+                    <input type="number" class="form-control" id="precio-dia-entero-basico" name="price_full" required>
+                  </div>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-primary prev-step-btn">Anterior</button>
+                    <button type="button" class="btn btn-success next-step-btn">Siguiente</button>
+                  </div>
+                </div>
+                <div class="form-step d-none">
+                  <h4>Cumplimiento y Responsabilidad</h4>
+                  <div class="form-group">
+                    <div class="form-check agree-check">
+                      <input type="checkbox" id="confirm-requirements" name="agreeRequire" value="Sí" required>
+                      <label for="confirm-requirements"> Confirmo que cumplo con todos los documentos, cualificaciones,
+                        pagos y requisitos legales para trabajar como instructor de esquí/snowboard y otras actividades
+                        invernales, en la/s localidad/es donde desarrollo mis servicios
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Términos y Condiciones</label>
+                    <div class="form-check agree-check">
+                      <input type="checkbox" id="agree-terms" name="agreeTerms" value="Sí" required>
+                      <label for="agree-terms">
+                        Entiendo y acepto los <a href="/terminos-y-condiciones" target="_blank"
+                          rel="noopener noreferrer">Términos y Condiciones</a>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-check agree-check">
+                      <input type="checkbox" id="agree-privacy" name="agreePrivacy" value="Sí" required>
+                      <label for="agree-privacy">Entiendo y acepto la <a href="">Política de Privacidad</a> y
+                        Tratamiento de Datos
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-primary prev-step-btn">Anterior</button>
+                    <button type="submit" class="btn btn-success" id="submit-btn" disabled>Enviar Solicitud</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <dialog class=modal-dialog>
+    <div class="dialog-content">
+      <img src="../assets/logo-slim.png" alt="">
+      <p class="dialog-message"></p>
+    </div>
+
+  </dialog>
+  <script src="../scripts/signup.js"></script>
+  <script src="../scripts/utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

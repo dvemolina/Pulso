@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+.card__gp {
+    margin: 0 auto;
+    max-width: 315px;
+    height: 450px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 1fr;
+    grid-template-areas: 
+    "avatar"
+    "infobox"
+    
+    ; 
+    box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.137);
+    border-radius: 7px; 
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "Poppins";
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.card__gp:hover {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.334);
+}
+
+
+    .card__avatar__avatar {
+        grid-area: avatar;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "avatar-l avatar-r"
+        ;
+    }
+        .card__avatar--left {
+            grid-area: avatar-l;
+            justify-self: start;
+            padding: 5px;
+        }
+            #card__avatar__sports{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-content: center;
+                background-color: rgba(255, 255, 255, 0.4);
+                backdrop-filter: saturate(100%) blur(10px);
+                -webkit-backdrop-filter: saturate(100%) blur(10px);
+                border-radius: 7px;
+                gap: 5px;
+                padding: 3px
+            }        
+                .card-sport-icon img{
+                    max-width: 35px;
+                    display: block;
+                }
+        .card__avatar--right {
+            grid-area: avatar-r;
+            justify-self: end;
+            padding: 5px;
+        }
+            .avatar__id__container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                border-radius: 7px;
+                background-color: rgba(255, 255, 255, 0.4);
+                backdrop-filter: saturate(100%) blur(10px);
+                -webkit-backdrop-filter: saturate(100%) blur(10px);
+                gap: 3px;
+                padding: 1.5px 4px;
+                font-weight: 500;
+                font-size: 14px
+            }
+                .id-logo {
+                    max-width: 16px;
+                }
+    .card__avatar__info__box{
+        grid-area: infobox;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas: 
+        "info"
+        "btns"
+        ;
+        height: auto;
+        background-color: #6868694d; 
+        backdrop-filter: saturate(100%) blur(35px);
+        -webkit-backdrop-filter: saturate(100%) blur(35px);
+        transition: height 0.4s ease-in-out;
+        
+    }
+
+            .card__avatar__info {
+                
+                display: grid;
+                grid-template-columns: 1.2fr 1fr ;
+                grid-template-rows: auto auto;
+                grid-template-areas: 
+                "info-l info-r"
+                "bio bio"
+                ;
+                padding: 9px 15px;
+                transition: grid-template-rows 0.4s ease-in-out;
+                color: rgba(255, 255, 255, 0.699);
+                cursor: pointer
+            }
+                .card__info--left {
+                    grid-area: info-l;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr 2fr;
+                }
+                    .info__name {
+                        grid-row: 1 / 2;
+                        font-size: 1.3rem;
+                        font-weight: 600;
+                        color: white;
+                    }
+                    .info__prices {
+                        grid-row: 2 / 3;
+                        font-size: 15px;
+                        padding-left: 5px;
+                    }
+
+                        .price--hour span, .price--day span {
+                            color: rgba(255, 255, 255, 0.964);
+                        }
+                       
+                .card__info--right {
+                    grid-area: info-r;
+                    display: grid;
+                    flex-direction: column;
+                    font-size: 14px;
+                }
+                    .info--right--age_group{
+                    }
+                    .info--right--languages{
+                        display: flex;
+                        flex-direction: row;
+                    }
+                    .info--right--client_level{
+                    }
+                    .info--right--currencies{
+                    }
+                    .info--right--qualification{
+                    }
+                    .card__avatar__bio{
+                        grid-area: bio;
+                        text-align: justify;
+                        hyphens: auto;
+                        overflow: hidden;
+                        font-size: 14px;
+                        height: 0; 
+                        transition: height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+                        opacity: 0; 
+                        color: rgba(245, 245, 245, 0.844);
+                    }
+                    
+                    #pull__bio {
+                        text-align: center;
+                        transition: display 0.4s ease-in-out
+                    }
+                    #pull__bio__icon {
+                        width: 25px;
+                        height: 25px;
+                    }
+        
+                    #bio__text {
+                        opacity: 0;
+                        transition: opacity 0.4s ease-in-out
+                    }
+                
+                    .card__gp--expanded .card__avatar__bio {
+                        height: 200px !important; 
+                        opacity: 1;
+                        margin-top: 10px;
+                    }
+                    .card__gp--expanded #bio__text {
+                        opacity: 1;
+                    }
+                    .card__gp--expanded #pull__bio {
+                        display: none
+                    }
+        
+                    .card__gp:not(.card__gp--expanded):hover .card__avatar__bio {
+                        height: 30px;
+                        opacity: 1
+                    }
+                    
+
+
+    .card__avatar__btns {
+        grid-area: btns;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        border-radius: 0 0 7px 7px;
+        padding-bottom: 15px;
+        
+    }
+            .card__btn {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 7px;
+                padding: 6px 30px;
+                font-size: 17px;
+                font-weight: 600;
+                border: none;
+                border-radius: 7px;
+                cursor: pointer;
+            }
+                .btn--profile{
+                    background-color:rgba(255, 255, 255, 0.752);
+                    color: #111522fc;
+                    transition: background-color 0.1s ease-in-out;
+                }
+                .btn--booking{
+                    background-color: rgba(71, 113, 71, 0.879);
+                    color: white; 
+                    transition: background-color 0.1s ease-in-out;
+                }
+                .btn--profile:hover {
+                    background-color:rgb(255, 255, 255);
+                }
+                .btn--booking:hover {
+                    background-color: rgb(40, 89, 40);
+                }
+

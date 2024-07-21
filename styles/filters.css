@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+.top-section {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "logo search help";
+    align-items: center;
+    padding: 1rem;
+}
+    #logo-bubble { 
+        grid-area: logo;
+        display:flex;
+        justify-self: center;
+        justify-content: center;
+        align-items: center;
+    }
+        #logo-bubble img {
+            max-width: 60px;
+            max-height: 60px;
+            border-radius: 100px; 
+            border:none;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.055);
+            transition: max-width 0.1s ease-in-out, max-height 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+        }
+        #logo-bubble:hover img:hover {
+            max-width: 61px;
+            max-height: 61px;
+            cursor: pointer;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.082);
+        }
+#dialog-btn-open {
+    display: none;
+}
+#big-bubble {
+    grid-area: search;
+    border: 0.1px solid rgba(96, 95, 95, 0.447);
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 56px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.038);
+    background-color: rgb(247, 245, 245);
+}
+
+    .inner-bubble {
+        padding: 0.7rem 1rem;
+        border-radius: 56px;
+        cursor: pointer;
+        background-color: rgb(243, 243, 243);
+        border: 0.5px solid grey; 
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.619); 
+    }
+    .inner-bubble:hover {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.038);
+    }
+    .sports-bubble {
+        justify-content: center;
+        width: fit-content;
+    }
+        .filter__icon {
+            max-width: 3rem;
+        }
+
+    .location-bubble select {
+        box-sizing: border-box;
+        max-width: 180px;
+    }
+    .search-bubble .inner-bubble {
+        background-color: rgba(71, 113, 71, 0.879);
+        color: rgba(255, 255, 255, 0.712); 
+        transition: background-color 0.1s ease-in-out;
+        font-weight: 600;
+        border: none;
+    }
+    .search-bubble .inner-bubble:hover {
+        background-color: rgb(40, 89, 40);
+        color: white; 
+    }
+    
+
+#help-bubble {
+    grid-area: help;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(96, 95, 95, 0.518);
+}
+.help-unit {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+    .help-icon {
+        width: 40px;
+        height: 40px;
+    }
+    .options-icon {
+        display:none;
+    }
+    .help-unit:hover{
+        color: rgba(5, 5, 5, 0.699);
+        cursor: pointer;
+    }
+
+    
+#dialog-bubble {
+    align-self: center;
+    margin: 0 auto;
+    padding: 30px;
+    border: 0.1px solid rgba(96, 95, 95, 0.447);
+    border-radius: 7px;
+}
+#dialog-bubble::backdrop {
+    background-color: rgba(0, 0, 0, 0.696);
+}
+    #dialog-search-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        border: none; 
+    }
+    .dia-bub-inner__group {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .dia-bub-custom-date {
+        display: flex;
+        flex-direction: column;
+    }
+        #dia-bub-logo {
+            max-width: 70px;
+        }
+        .dia-bub-icon {
+            max-width: 60px;
+            max-height: 60px;
+        }
+        #dia-bub-location {
+            width: 100%;
+        }
+
+        #dia-bub-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 30px;
+        }
+            
+            #dia-bub-btn {
+                background-color: rgba(71, 113, 71, 0.879);
+                color: rgba(255, 255, 255, 0.712); 
+                transition: background-color 0.1s ease-in-out;
+                font-weight: 600;
+                padding: 13px 25px;
+                font-size: 0.8rem;
+                border-radius: 56px;
+                max-width: 350px;
+                align-self: center
+            }
+            #dia-bub-btn:hover {
+                background-color: rgb(40, 89, 40);
+                color: white; 
+            }
+            #dia-bub-cancel {
+                color: rgba(10, 10, 10, 0.518);
+                border: none;
+                font-size: 0.9rem;
+                background-color: transparent;
+            }
+            #dia-bub-cancel:hover {
+                color: rgba(10, 10, 10, 0.927); 
+                cursor: pointer;   
+            }
+            #dia-bub-error {
+                color: rgba(229, 67, 67, 0.889);
+                font-weight: 600;
+                text-align: center;
+            }
+#options-dialog {
+    flex-direction: column;
+    gap: 10px;
+}
+#mods-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+    .mods-item-options {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: small;
+    }
+    .mods-item-options input[type="checkbox"]:checked {
+        opacity: 1;
+    }
+
+.filter-unit {
+    display:flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+    .inner-dialog-bubble {
+        padding: 0.5rem 1rem;
+        border-radius: 56px;
+        cursor: pointer;
+        background-color: rgb(243, 243, 243);
+        border: 0.5px solid grey; 
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.619); 
+        width: 100%;
+    }
+    .inner-dialog-bubble:hover {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.038);
+    }
+    .dialog-bubble-icon {
+        width: 30px;
+        height: 30px;
+    }
+@media (max-width: 1316px) {
+
+    #big-bubble {
+        gap:0.6rem;
+        padding: 0.5rem 1rem;
+    }
+        .filter__icon {
+            max-width: 3rem;
+        }
+        .inner-bubble {
+            padding: 0.7rem 0.9rem;
+        }
+}
+
+@media (max-width: 1181px) {
+    .location-bubble select {
+        box-sizing: border-box;
+        max-width: 180px;
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+    #logo-bubble img {
+        max-width: 50px;
+        max-height: 50px;
+    }
+    #logo-bubble:hover img:hover {
+        max-width: 51px;
+        max-height: 51px;
+    }
+    #big-bubble {
+        gap:0.6rem;
+        padding: 0.5rem 1rem;
+    }
+        .filter__icon {
+            max-width: 2.5rem;
+        }
+        .inner-bubble  {
+            padding: 0.6rem 0.7rem;
+        }
+        
+}
+
+@media (max-width: 1095px) {
+    .inner-bubble {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.6rem;
+    }
+    .location-bubble select {
+        box-sizing: border-box;
+        max-width: 130px;
+    }
+
+    .help-icon {
+        width: 30px;
+        height: 30px;
+    }
+    .options-icon {
+        display: block;
+        width: 30px;
+        height: 30px;
+    }
+}
+@media (max-width: 869px) {
+    #logo-bubble img {
+        max-width: 44px;
+        max-height: 44px;
+    }
+    #logo-bubble:hover img:hover {
+        max-width: 45px;
+        max-height: 45px;
+    }
+    #big-bubble {
+        gap:0.3rem;
+        padding: 0.5rem 0.95rem;
+    }
+        .filter__icon {
+            max-width: 2.1rem;
+        }
+        .inner-bubble {
+            padding: 0.3rem 0.6rem;
+        }
+    .inner-bubble {
+        padding: 0.5rem 0.4rem;
+        font-size: 0.53rem;
+    }
+    .location-bubble select {
+        box-sizing: border-box;
+        max-width: 130px;
+    }
+    
+    #help-bubble {
+        font-size: 0.4rem;
+        font-weight: 600;
+    }
+}
+
+@media (max-width: 757px) {
+    #dialog-btn-open {
+        display: flex;
+        grid-area: search;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        max-width: 95%;
+    }
+        #dialog-btn-open p {
+        font-size: 0.75rem;
+        background-color: transparent;
+        }
+        .dia-bub-group h2 {
+            font-size: 1.2rem;
+        }
+    #big-bubble {
+        display: none;
+    }
+    #help-bubble {
+        flex-direction: row;
+        gap: 10px;
+    }
+        .help-icon {
+            width: 30px;
+            height: 30px;
+        }
+    .arrow-icon {
+        width: 15px;
+        height: 15px;
+        background-color: transparent;
+    }
+
+#dialog-bubble {
+        padding: 30px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    #logo-bubble img {
+        max-width: 39px;
+        max-height: 39px;
+    }
+    #logo-bubble:hover img:hover {
+        max-width: 40px;
+        max-height: 40px;
+    }
+    #dialog-btn-open p {
+        font-size: 0.7rem;
+        cursor: pointer;
+    } 
+    #dialog-bubble {
+        padding: 20px 15px;
+    }
+}
+@media (max-width: 341px) {
+    #dialog-btn-open p {
+        font-size: 0.6rem;
+    }
+    #big-bubble {
+        gap:0.3rem;
+        padding: 0.3rem 0.75rem;
+    }
+    
+}
+

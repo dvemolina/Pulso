@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finder</title>
+    <link rel="stylesheet" href="../styles/finder.css">
+    <link rel="stylesheet" href="../styles/filters.css">
+    <link rel="stylesheet" href="../styles/instructor_card.css">
+    <link rel="stylesheet" href="../styles/bookings.css">
+    <link rel="shortcut icon" href="../assets/favicon-logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <main>
+        <div id="pre__finder__container">
+            <div id="first__search__container">
+                <img id="first-search-logo" src="../assets/favicon-logo.png" alt="">
+                <div class="first__search__group fs__sports">
+                    <h2>1. Selecciona Deporte</h2>
+                    <div class="first__search__inner__group">
+                        <label for="first__search__ski" class="checkbox-label">
+                            <input type="checkbox" name="Ski" id="first__search__ski">
+                            <img class="first__search__icon" src="../assets/skier-icon-pixel.png" alt="">
+                        </label>
+
+                        <label for="first__search__snowboard" class="checkbox-label">
+                            <input type="checkbox" name="Snowboard" id="first__search__snowboard">
+                            <img class="first__search__icon" src="../assets/snowboarder-icon-pixel.png" alt="">
+                        </label>
+
+                        <label for="first__search__telemark" class="checkbox-label">
+                            <input type="checkbox" name="Telemark" id="first__search__telemark">
+                            <img class="first__search__icon" src="" alt="">
+                        </label>
+                    </div>
+                </div>
+                <div class="first__search__group">
+                    <h2>2. Selecciona Centro</h2>
+                    <div id="first__serch__location">
+                        <select class="first__search__select" name="resort" id="resort_fs">
+                            <option value="">Selecciona Centro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="first__search__group">
+                    <h2>3. Selecciona Fechas</h2>
+                    <div class="first__search__inner__group">
+                        <div class="custom-date-container">
+                            <label class="custom-date-placeholder">Fecha inicio</label>
+                            <input class="first__search__select" id="start_date_fs" name="start_date" type="date">
+                        </div>
+                        <div class="custom-date-container">
+                            <label class="custom-date-placeholder">Fecha final</label>
+                            <input class="first__search__select" id="end_date_fs" name="end_date" type="date">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="first-search-btn">Encuentra Tu Instructor</button>
+                <div id="error_fs"></div>
+            </div>
+            <div id="pre__finder__loader">
+                <div id="loader-wrapper">
+                    <div id="loader">
+                        <img src="../assets/favicon-logo.png" alt="">
+                    </div>
+                    <h2 id="searching-msg">Buscando instructores disponibles...</h2>
+                </div>
+            </div>
+        </div>
+        <div id="finder__container">
+            <div id="filter__section">
+                <div class="top-section">
+                    <div id="logo-bubble">
+                        <img src="../assets/favicon-logo.png" alt="Logo Pulso">
+                    </div>
+                    <div id="dialog-btn-open" class="inner-bubble">
+                        <p> Encuentra a tu Instructor</p>
+                        <ion-icon class="arrow-icon" name="arrow-forward-outline"></ion-icon>
+                    </div>
+                    <div id="big-bubble">
+                        <div class="sports-bubble">
+                            <label for="big-bub-ski" class="checkbox-label">
+                                <input type="checkbox" name="Ski" id="big-bub-ski">
+                                <img class="filter__icon" src="../assets/skier-icon-pixel.png" alt="">
+                            </label>
+                            <label for="big-bub-snowboard" class="checkbox-label">
+                                <input type="checkbox" name="Snowboard" id="big-bub-snowboard">
+                                <img class="filter__icon" src="../assets/snowboarder-icon-pixel.png" alt="">
+                            </label>
+                        </div>
+                        <div class="location-bubble ">
+                            <select class="inner-bubble" name="location" id="big-bub-location">
+                                <option value="">Selecciona Centro</option>
+                            </select>
+                        </div>
+                        <div class="dates-bubble">
+                            <input id="big-bub-start_date" class="inner-bubble" name="start_date" type="date">
+                            <input id="big-bub-end_date" class="inner-bubble" name="end_date" type="date">
+                        </div>
+                        <div class="search-bubble ">
+                            <button id="fetch-btn-mainfinder" class="inner-bubble bubbble-btn"
+                                type="button">Buscar</button>
+                        </div>
+                    </div>
+                    <div id="help-bubble">
+                        <div id="options-unit" class="help-unit">
+                            <ion-icon class="help-icon" name="options-outline"></ion-icon>
+                            <p>Filtros</p>
+                        </div>
+                        <div id="help-unit" class="help-unit">
+                            <ion-icon class="help-icon" name="help-circle-outline"></ion-icon>
+                            <p>Ayuda</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <dialog id="dialog-bubble">
+                    <div id="dialog-search-div">
+                        <img id="dia-bub-logo" src="../assets/favicon-logo.png" alt="">
+                        <div class="dia-bub-group">
+                            <h2>1. Selecciona Deporte</h2>
+                            <div class="dia-bub-sports__group">
+                                <label for="dia-bub-ski" class="dia-bub-sport checkbox-label">
+                                    <input type="checkbox" name="Ski" id="dia-bub-ski">
+                                    <img class="dia-bub-icon" src="../assets/skier-icon-pixel.png" alt="">
+                                </label>
+
+                                <label for="dia-bub-snowboard" class="dia-bub-sport checkbox-label">
+                                    <input type="checkbox" name="Snowboard" id="dia-bub-snowboard">
+                                    <img class="dia-bub-icon" src="../assets/snowboarder-icon-pixel.png" alt="">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="dia-bub-group">
+                            <h2>2. Selecciona Centro</h2>
+                            <div id="dia-bub-location">
+                                <select class="inner-bubble" name="resort" id="dia-bub-location">
+                                    <option value="">Selecciona Centro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="dia-bub-group">
+                            <h2>3. Selecciona Fechas</h2>
+                            <div class="dia-bub-inner__group">
+                                <div class="dia-bub-custom-date">
+                                    <label class="custom-date-placeholder">Fecha inicio</label>
+                                    <input class="inner-bubble" id="dia-bub-start_date" name="start_date" type="date">
+                                </div>
+                                <div class="dia-bub-custom-date">
+                                    <label class="custom-date-placeholder">Fecha final</label>
+                                    <input class="inner-bubble" id="dia-bub-end_date" name="end_date" type="date">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="dia-bub-error"></div>
+                    </div>
+
+                    <div id="options-dialog">
+                        <div id="mods-options">
+                            <label for="filter__mod__alpino" class="checkbox-label mods-item-options">
+                                <input type="checkbox" name="alpino" id="filter__mod__alpino">
+                                <img class="filter__icon" src="../assets/disciplines/Alpine.png" alt="">
+                                <span>Alpino</span>
+                            </label>
+
+                            <label for="filter__mod__freeride" class="checkbox-label mods-item-options">
+                                <input type="checkbox" name="freeride" id="filter__mod__freeride">
+                                <img class="filter__icon" src="../assets/disciplines/Freeride.png" alt="">
+                                <span>Freeride</span>
+                            </label>
+
+                            <label for="filter__mod__freestyle" class="checkbox-label mods-item-options">
+                                <input type="checkbox" name="freestyle" id="filter__mod__freestyle">
+                                <img class="filter__icon" src="../assets/disciplines/Freestyle.png" alt="">
+                                <span>Freestyle</span>
+                            </label>
+
+                            <label for="filter__mod__travesia" class="checkbox-label mods-item-options">
+                                <input type="checkbox" name="travesia" id="filter__mod__travesia">
+                                <img class="filter__icon" src="../assets/disciplines/Touring.png" alt="">
+                                <span>Touring</span>
+                            </label>
+                        </div>
+                        <div class="filter-unit">
+                            <ion-icon class="dialog-bubble-icon" name="person-add-outline"></ion-icon>
+                            <select class="inner-dialog-bubble" name="persons" id="persons">
+                                <option value="">Nº Personas</option>
+                                <option value="1-2">1-2</option>
+                                <option value="3-5">3-5</option>
+                                <option value="6+">6+</option>
+                                <option value="escolares">Escolares</option>
+                            </select>
+                        </div>
+                        <div class="filter-unit">
+                            <ion-icon class="dialog-bubble-icon" name="chatbubbles-outline"></ion-icon>
+                            <select class="inner-dialog-bubble" name="languages" id="languages">
+                                <option value="">Idioma</option>
+                                <option value="Inglés">Inglés</option>
+                                <option value="Español">Español</option>
+                                <option value="Alemán">Alemán</option>
+                                <option value="Portugués">Portugés</option>
+                                <option value="Italiano">Italiano</option>
+                                <option value="Ruso">Ruso</option>
+                                <option value="Japonés">Japonés</option>
+                                <option value="Mandarín">Mandarín</option>
+                                <option value="Finlandés">Finlandés</option>
+                                <option value="Sueco">Sueco</option>
+                            </select>
+                        </div>
+                        <div class="filter-unit">
+                            <ion-icon class="dialog-bubble-icon" name="stats-chart-outline"></ion-icon>
+                            <select class="inner-dialog-bubble" name="level" id="level">
+                                <option value="">Nivel</option>
+                                <option value="Todos los Niveles">Todos los Niveles</option>
+                                <option value="Primera Vez">Primera Vez</option>
+                                <option value="Principiante">Principiante</option>
+                                <option value="Intermedio">Intermedio</option>
+                                <option value="Avanzado">Avanzado</option>
+                                <option value="Experto">Experto</option>
+                                <option value="Tecnificación">Tecnificación</option>
+                            </select>
+                        </div>
+                        <div class="filter-unit">
+                            <ion-icon class="dialog-bubble-icon" name="finger-print-outline"></ion-icon>
+                            <select class="inner-dialog-bubble" name="age_group" id="">
+                                <option value="">Edad</option>
+                                <option value="Todas las Edades">Todas las Edades</option>
+                                <option value="3-5">3-5 años</option>
+                                <option value="6-8">6-8 años</option>
+                                <option value="9-12">9-12 años</option>
+                                <option value="13-15">13-15 años</option>
+                                <option value="16-18">16-18 años</option>
+                                <option value="19-29">19-29 años</option>
+                                <option value="30-49">30-49 años</option>
+                                <option value="50+">50+ años</option>
+                            </select>
+                        </div>
+                        <div class="filter-unit">
+                            <ion-icon class="dialog-bubble-icon" name="cash-outline"></ion-icon>
+                            <select class="inner-dialog-bubble" name="currency" id="currency">
+                                <option value="">Moneda</option>
+                                <option value="EUR">EUR</option>
+                                <option value="USD">USD</option>
+                                <option value="ARS">ARS</option>
+                                <option value="GBP">GBP</option>
+                            </select>
+                        </div>
+                        <div class="filter-unit"">
+                            <input type=" number" class="inner-dialog-bubble filter-price" id="precio_max_hora"
+                            name="precio_max_hora" min="0" step="10" placeholder="Precio/Hora">
+                            <input type="number" class="inner-dialog-bubble filter-price" id="precio_max_dia"
+                                name="precio_max_dia" min="0" step="10" placeholder="Precio/Día">
+                        </div>
+                    </div>
+
+                    <div id="help-dialog"></div>
+                    <div id="dia-bub-buttons">
+                        <button id="dia-bub-btn" class="inner-bubble">Encuentra Tu Instructor</button>
+                        <button id="dia-bub-cancel">Cancelar</button>
+                    </div>
+                </dialog>
+            </div>
+            <div id="instructor__section">
+                <div id="instructor-loader-wrapper">
+                    <div id="instructor-loader">
+                        <img class="logo-dialog-booking" src="../assets/favicon-logo.png" alt="">
+                    </div>
+                    <h2 id="instructor-searching-msg">Buscando instructores disponibles...</h2>
+                </div>
+                <div id="instructor-wrapper">
+
+                </div>
+            </div>
+        </div>
+        <dialog id="booking-dialog">
+            <img id="logo-dialog" src="../assets/favicon-logo.png" alt="">
+            <div id="first-step-booking">
+                <div class="dialog-header">
+                    <h2>Bloques de Reserva Disponibles</h2>
+                    <p>Selecciona los bloques de 1 hora disponibles que te gustaría reservar</p>
+                    <p id="example-booking">Ejemplo: Bloque de las 11:00 => Reserva de 11:00 a 12:00</p>
+                </div>
+                <div id="booking-dates"></div>
+                <div class="booking-dialog-buttons" id="buttons-first-step">
+                    <button class="dialog-btn close-btn-dialog">Cancelar</button>
+                    <button class="dialog-btn next-btn-dialog">Siguiente</button>
+                </div>
+            </div>
+            <div id="second-step-booking">
+                <div class="dialog-header">
+                    <h2>Rellena los datos para la Reserva</h2>
+                    <p>Completa tus datos y responde a la preguntas para que el instructor se pueda adaptar a tus
+                        necesidades</p>
+                </div>
+                <form id="form-div" action="" method="post">
+                    <div id="client-data">
+                        <div id="student-section">
+                            <h3>1. Detalles Personales Alumnos</h3>
+                            <div class="detail-group">
+                                <label for="students_amount">Nº de Alumnos</label>
+                                <input id="students_amount" type="number" name="students_amount" min="1">
+                            </div>
+                            <div id="student-details-section">
+                                <div id="students-wrapper">
+                                    <fieldset class="student-details">
+                                        <div class="detail-group">
+                                            <label for="student_name">Nombre Alumno</label>
+                                            <input type="text" name="student_name" class="student_name"
+                                                placeholder="Nombre">
+                                        </div>
+                                        <div class="detail-group">
+                                            <label for="student_surname">Apellidos Alumno</label>
+                                            <input type="text" name="student_surname" class="student_surname"
+                                                placeholder="Apellidos">
+                                        </div>
+                                        <div class="detail-group">
+                                            <label for="student_age">Edad Alumno</label>
+                                            <input class="student_age" type="number" name="student_age" min="1">
+                                        </div>
+                                        <div class="detail-group">
+                                            <label for="student_level">Nivel Alumno</label>
+                                            <select class="student_level">
+                                                <option value="">Selecciona Nivel</option>
+                                                <option value="Sin nivel indicado">No estoy seguro/a de mi nivel
+                                                </option>
+                                                <option value="Primera Vez">Primera Vez</option>
+                                                <option value="Iniciado">Iniciado</option>
+                                                <option value="Principiante">Principiante</option>
+                                                <option value="Intermedio">Intermedio</option>
+                                                <option value="Avanzado">Avanzado</option>
+                                                <option value="Experto">Experto</option>
+                                                <option value="Tecnificación">Tecnificación</option>
+                                            </select>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <button id="add-student-details">Añadir Alumno Extra</button>
+                                <p style=" font-size: 14px;">¿No conoces tu nivel? <a href="#">Entra aquí</a></p>
+                            </div>
+                        </div>
+                        <div id="client-section">
+                            <h3>2. Datos Contacto Reserva</h3>
+                            <div id="client-details-data">
+                                <div class="detail-group main-client-fields">
+                                    <label for="client_name">Nombre Reserva</label>
+                                    <input type="text" name="client_name" id="client_name" placeholder="Nombre">
+                                </div>
+                                <div class="detail-group main-client-fields">
+                                    <label for="client_surname">Apellidos Reserva</label>
+                                    <input type="text" name="client_surname" id="client_surname"
+                                        placeholder="Apellidos">
+                                </div>
+                                <div class="detail-group main-client-fields">
+                                    <label for="client_email">Email Reserva</label>
+                                    <input type="email" name="client_email" id="client_email"
+                                        placeholder="Introduce tu Email">
+                                </div>
+                            </div>
+                            <div id="client-goals-data">
+                                <div class="detail-group">
+                                    <label for="client_goals">Objetivos y expectativas</label>
+                                    <textarea rows="5" class="textarea-custom" id="client_goals" name="client_goals"
+                                        placeholder="¿Qué te gustaría obtener de la Sesión? Cuáles son tus objetivos y/o expectativas?"></textarea>
+                                </div>
+                                <div class="detail-group">
+                                    <label for="client_other">Experiencias Previas</label>
+                                    <textarea rows="5 class=" textarea-custom" id="client_other" name="client_other"
+                                        placeholder="Explica brevemente tus experiencias previas en la nieve o cualquier cosa que te gustaría compartir con el Instructor"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="booking-dialog-buttons" id="buttons-second-step">
+                        <button class="dialog-btn close-btn-dialog" id="step-back-dialog">Atrás</button>
+                        <button class="dialog-btn next-btn-dialog" id="submit-booking" type="submit">Continuar</button>
+                    </div>
+                </form>
+
+            </div>
+            <div id="third-step-booking-wrapper">
+                <div id="third-step-booking">
+                    <div class="dialog-header">
+                        <h2>Confirma tu Petición de Reserva</h2>
+                        <p>Revisa y confirma los datos en la Petición de Reserva que se enviará al Instructor</p>
+                    </div>
+                    <div id="booking-details-review">
+
+                    </div>
+                    <div class="booking-dialog-buttons" id="buttons-third-step">
+                        <button class="dialog-btn close-btn-dialog" id="last-step-back-dialog">Atrás</button>
+                        <button class="dialog-btn next-btn-dialog" id="confirm-booking">Confirmar y Enviar</button>
+                    </div>
+                </div>
+                <div id="send-booking-loader">
+                    <div id="booking-loader-wrapper">
+                        <div id="booking-loader">
+                            <img class="logo-dialog-booking" src="../assets/favicon-logo.png" alt="">
+                        </div>
+                        <h2 id="booking-loader-msg">Enviando Solicitud al Instructor...</h2>
+                    </div>
+                </div>
+            </div>
+            <h4 id="error-booking-msg"></h4>
+        </dialog>
+    </main>
+
+    <script src="../scripts/finder.js"></script>
+    <script src="../scripts/filters.js"></script>
+    <script src="../scripts/bookings.js"></script>
+    <script src="../scripts/utils.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

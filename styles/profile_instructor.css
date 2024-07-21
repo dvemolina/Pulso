@@ -1,0 +1,484 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(242, 242, 242)
+}
+
+
+#main {
+    display: grid;
+    grid-template-columns: 1.4fr 4fr;
+    grid-template-rows: auto;
+    gap: 50px;
+    padding: 50px 80px;
+    font-family: 'Poppins';
+}
+    .avatar-section {
+        grid-column: 1 / 2;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 17px;
+    }
+        .avatar-container {
+            background-color: rgb(253, 253, 253);
+            display: flex;
+            flex-direction: column;
+            border-radius:7px;
+            position: sticky;
+            top: 50px;
+            left: 0;
+            z-index: 1;
+            box-shadow: 1px 1px 20px 3px rgba(183, 181, 181, 0.16);
+        }   
+
+            #avatar-img {
+                height: 355px;
+                width: 340px;
+                object-fit: cover;
+                object-position: top;
+                border-radius: 7px 7px 0 0; 
+            }
+            
+            #avatar-text-content {
+                padding: 0px 20px;
+                margin-top: 10px
+            }
+                #avatar-name {
+                    font-size: 1.4rem;
+                    font-weight: 700;
+                    align-self: center;
+                }
+                #avatar-location-div {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 7px;
+                    font-size: 0.9rem;
+                    padding: 7px;
+                    margin-bottom: 5px;
+                }
+            .cta-container {
+                display: flex;
+                justify-content: center;
+            }
+                .cta-btn{
+                    margin: 20px;
+                    border-radius: 4px;
+                    border: none;
+                    width: 100%;
+                    color: rgb(255, 255, 255);
+                    background-color:rgba(71, 113, 71, 0.879);;
+                    padding: 12px 70px;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    box-shadow: 1px 1px 20px 3px rgba(183, 181, 181, 0.074);
+                } 
+                .cta-btn:hover{
+                    background-color: rgb(40, 89, 40);
+                    cursor: pointer;
+                    cursor: pointer;
+                }  
+
+            .dynamic-price {
+                font-weight: 400;
+            }
+
+    .profile-section {
+        grid-column: 2 / 3;
+    }
+        #profile-banner {
+                    background-image: url(../img/chairlift.jpg);
+                    height: 230px;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center right;
+                    border-radius: 7px 7px 7px 7px;
+                    margin-bottom: 15px;
+            }  
+            
+        #services-section {
+            box-shadow: 1px 1px 20px 3px rgba(183, 181, 181, 0.16);
+            border-radius: 7px;
+        }
+            .titulo-section {
+                padding: 15px 30px;
+                justify-content: space-between;
+                align-items: center;
+                display: flex;
+                flex-direction: row;
+                background-color: rgb(253, 253, 253);
+                border-radius: 7px 7px 0 0;
+                box-shadow: 3px 7px 5px 1px rgba(101, 100, 100, 0.077);
+            }
+
+                .titulo-section img {
+                    max-width: 35px;
+                    max-height: 35px;
+                }
+                .titulo-section h2 {
+                    font-size: 1.7rem;
+                    font-weight: 700;
+                }
+        
+                
+        .profile-info-container {
+            display: flex;
+            flex-direction: column;
+        }
+         
+            #services {
+                display: flex;
+                flex-direction: column;
+                padding: 30px 35px;
+                gap: 30px;
+            }
+
+                #services h4 {
+                    font-weight: 600;
+                    font-size: 1.3rem
+                }
+
+                #services-sports {
+                    display:flex;
+                    flex-direction: column;
+                    gap: 20px;
+                }
+                    #sports-icons {
+                        display:flex;
+                        flex-direction: column;
+                        gap: 35px;
+                    }
+                        .sport-div {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 10px;
+                        }
+                        .sport-item {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        
+                        .mods-item {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 35px;
+                        }
+                        .sport-item p,.mods-item p {
+                            font-size: medium;
+                        }
+                        .mod-unit {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                            .sport-img {
+                                max-width: 75px;
+                                max-height: 75px;
+                            }
+                            .mod-img {
+                                max-width: 55px;
+                                max-height: 55px;
+                            }
+                #services-description {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
+                #services-txt {
+                    hyphens: auto;
+                    text-align: justify;
+                }
+
+                .detalles-parent {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 1fr;
+                    margin-top: 50px;
+                    gap: 15px;
+                    width: 100%;
+                }            
+                    
+                    .detalles-contenido {
+                        display: flex;
+                        flex-direction: column;
+                        grid-column: 1 / 2;
+                        box-shadow: 1px 1px 20px 3px rgba(183, 181, 181, 0.16);
+                    }
+                        .detalles-titulo img {
+                            max-width: 35px;
+                            max-height: 35px;
+                        }
+                        #detalles-lista {
+                            padding: 30px 30px;
+                            border-radius: 7px;
+                            background-color: rgba(249, 249, 249, 0);
+                        }
+                            .cabecera-lista{
+                                font-weight: 600;
+                            }
+
+                    #detalles-galeria {
+                        grid-column: 2 / 3;
+                    }
+                        #detalles-galeria img {
+                            object-fit: cover;
+                            object-position: center right;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 7px 7px 7px 7px;
+                            display: block
+                        }
+                   
+                #tagline{
+                    font-size: 1.2rem;
+                    text-align: justify;
+                    hyphens: auto;
+                    font-weight: 400;
+                    margin: 40px 20px;
+                }
+           
+            
+                #reviews-container {
+                    margin-top: 30px;
+                    border-radius: 7px;
+                    box-shadow: 1px 1px 20px 3px rgba(183, 181, 181, 0.16);
+                }
+                    #reviews-titulo img {
+                        max-width: 45px;
+                    }
+                    #reviews-contenido {
+                        padding: 30px 35px;
+                    }
+                    #no-reviews {
+                        text-align: center;
+                        font-size: large;
+                    }
+
+
+@media (max-width: 1125px) {
+    #main {
+        gap: 30px;
+        padding: 50px 30px;
+    }
+        #avatar-img {
+            max-height: 300px;
+            width: 280px;
+        }
+        #avatar-name {
+            font-size: 1.1rem;
+        }
+        #avatar-location-div {
+            font-size: 0.6rem;
+        }
+        .cta-btn{
+            font-size: 1rem;
+        } 
+    .dynamic-price {
+        font-size: 12px;
+    }
+    .cabecera-lista{
+        font-size: 12px;
+    }
+
+}
+@media (max-width: 970px) {
+    .sport-img {
+        max-width: 55px;
+        max-height: 55px;
+    }
+    .mod-img {
+        max-width: 35px;
+        max-height: 35px;
+    }
+
+}
+@media (max-width: 920px) {
+
+#avatar-img {
+    width: 255px;
+}     
+
+#avatar-name {
+    font-size: 1.1rem;
+}
+#avatar-location-div {
+    font-size: 0.9rem;
+}
+.cta-btn{
+    font-size: 0.9rem;
+} 
+.dynamic-price {
+font-size: 14px;
+}
+.cabecera-lista{
+font-size: 14px;
+}
+#profile-banner {
+    height: 150px;
+    background-position: center right;
+}
+
+    .detalles-parent {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 50px;
+        gap: 15px;
+        width: 100%;
+    }            
+        
+            #detalles-galeria img {
+                object-position: center center;
+                max-height: 150px;
+            }
+       
+    #tagline{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 899px) {
+
+    #main {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 50px 30px;
+    }
+    .avatar-section {
+        display: flex;
+        flex-direction: row; 
+    }
+    .avatar-container {
+        flex-direction: row;
+        position: sticky;
+        width: 100%
+    }  
+    #avatar-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
+    }
+    #avatar-img {
+        border-radius: 7px 0 0 7px;
+    } 
+
+    #avatar-name {
+        font-size: 1.4rem;
+    }
+    #avatar-location-div {
+        font-size: 1.1rem;
+    }
+    .cta-btn{
+        font-size: 1.1rem;
+    } 
+    .dynamic-price {
+        font-size: 16px;
+    }
+    .cabecera-lista{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 635px) {
+
+    #sports-icons {
+        display:flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+    .sport-div {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .mods-item {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .sport-img {
+        max-width: 45px;
+        max-height: 45px;
+    }
+    .mod-img {
+        max-width: 30px;
+        max-height: 30px;
+    }
+}
+
+@media (min-width: 544px) {
+    
+    #avatar-name {
+        font-size: 1.1rem;
+    }
+    #avatar-location-div {
+        font-size: 0.9rem;
+    }
+    .cta-btn{
+        font-size: 0.9rem;
+    } 
+.dynamic-price {
+    font-size: 14px;
+}
+.cabecera-lista{
+    font-size: 14px;
+}
+}
+
+@media (max-width: 543px) {
+    
+    .avatar-section {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+    }
+    .avatar-container {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+    }
+
+    #avatar-img {
+        max-height: 350px;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 7px 7px 0 0; 
+    }
+}
+
+@media (max-width: 450px) {
+    #main {
+        gap: 30px;
+        padding: 50px 20px;
+    }
+    #services {
+        display: flex;
+        flex-direction: column;
+        padding: 30px 15px;
+        gap: 30px;
+    }
+
+    #reviews-contenido {
+        padding: 30px 15px;
+    }
+    #no-reviews {
+        text-align: justify;
+        hyphens: auto;
+        font-size: medium;
+    }
+}
+

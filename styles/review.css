@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+.review-card {
+    border: 0.1px dotted rgba(96, 95, 95, 0.305);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.038);
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 275px;
+    font-family: 'Poppins';
+}
+.review-header, .review-content {
+    padding: 15px;
+}
+.review-header {
+    background-color: rgba(253, 253, 253, 0.34);
+    border-radius: 7px 7px 0 0;
+    box-shadow: 3px 7px 5px 1px rgba(119, 118, 118, 0.042);
+    border-bottom: 0.1px solid rgba(96, 95, 95, 0.121);
+}
+.label-review {
+    font-weight: 600;
+}
+.client-name {
+    font-size: medium;
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+.booked-sport, .review-rating, .review-text {
+    font-size: small;
+}
+.review-text {
+    text-align: justify;
+    hyphens: auto;
+}

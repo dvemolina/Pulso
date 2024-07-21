@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba dashboard
+    </title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            var scriptUrl = urlParams.get('scurl');
+            var decodedUrl = decodeURIComponent(scriptUrl)
+
+            if (scriptUrl) {
+                var iframe = document.getElementById('dashFrame');
+                iframe.src = decodedUrl;
+            } else {
+                // Handle missing scriptUrl parameter
+                alert('Missing scriptUrl parameter.');
+            }
+        };
+    </script>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <iframe id="dashFrame" frameborder="0" scrolling="no"></iframe>
+</body>
+
+</html>
