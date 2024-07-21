@@ -1,6 +1,6 @@
 const selectorResortFS = '#resort_fs'
 const selectorResortBB = '#big-bub-location'
-const selectorResortDia = '#dia-bub-location' 
+const selectorResortDia = '#dia-bub-location'
 
 document.addEventListener('DOMContentLoaded', () => {
     createResortOptions(selectorResortFS);
@@ -101,8 +101,8 @@ btnFs.addEventListener('click', async () => {
     } catch (error) {
         console.error('Algo no funcionó correctamente', error);
         firstSearchDiv.style.display = 'flex';
-            loaderWrapper.style.display = 'none';
-            errorFs.innerText = `Algo no funcionó correctamente. Comprueba tu conexión a internet y vuelve a intentarlo en unos instantes. Si el problema persiste, ponte en contacto indicando el siguiente mensaje: ${error}`;
+        loaderWrapper.style.display = 'none';
+        errorFs.innerText = `Algo no funcionó correctamente. Comprueba tu conexión a internet y vuelve a intentarlo en unos instantes. Si el problema persiste, ponte en contacto indicando el siguiente mensaje: ${error}`;
     }
 });
 
