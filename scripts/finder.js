@@ -100,7 +100,9 @@ btnFs.addEventListener('click', async () => {
         }
     } catch (error) {
         console.error('Algo no funcionó correctamente', error);
-        alert(`Algo no funcionó correctamente. Comprueba tu conexión a internet y vuelve a intentarlo en unos instantes. Si el problema persiste, ponte en contacto indiando el siguiente mensaje: ${error.message}`);
+        firstSearchDiv.style.display = 'flex';
+            loaderWrapper.style.display = 'none';
+            errorFs.innerText = `Algo no funcionó correctamente. Comprueba tu conexión a internet y vuelve a intentarlo en unos instantes. Si el problema persiste, ponte en contacto indicando el siguiente mensaje: ${error}`;
     }
 });
 
