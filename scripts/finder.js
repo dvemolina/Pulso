@@ -286,7 +286,7 @@ function createInstructorCard(instructor) {
         profileBtn.addEventListener('click', () => {
 
             setInstructorData(`instructor_${instructorId}`, instructor);
-            window.open(`https://pulsodenieve.com/core/profile_instructor.html?id=${instructorId}`, '_blank');
+            window.open(`https://pulsodenieve.com/pulso/core/profile_instructor.html?id=${instructorId}`, '_blank');
         })
 
         const bookingBtn = card.querySelector('.btn--booking')

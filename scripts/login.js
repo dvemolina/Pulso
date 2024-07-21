@@ -4,7 +4,7 @@ function checkLoginStatus() {
     const authToken = getCookie('pulso_token');
     const loginId = getCookie('id');
     const authTokenExpiry = getCookieExpiry('pulso_token');
-    
+
     console.log('Auth Token:', authToken);
     console.log('Login ID:', loginId);
     console.log('Auth Token Expiry:', authTokenExpiry);
@@ -70,7 +70,7 @@ loginBtn.addEventListener('click', async (e) => {
         const loginData = {
             id: id.toUpperCase(),
             pwd: pwd,
-        
+
         }
         try {
             const response = await fetch(loginForm.action, {
@@ -95,14 +95,14 @@ loginBtn.addEventListener('click', async (e) => {
                 if (outcome === "error") {
                     hideLoadingModal()
                     showErrorModal(data.message)
-                } else if (outcome === "success"){
+                } else if (outcome === "success") {
                     hideLoadingModal()
                     showSuccessModal(data.message)
                     const url = data.url
                     setTimeout(() => {
                         window.location = url
                     }, 1600)
-                    
+
                 }
             }
         } catch (error) {
