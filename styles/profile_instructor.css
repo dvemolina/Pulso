@@ -93,7 +93,7 @@ body {
         grid-column: 2 / 3;
     }
         #profile-banner {
-                    background-image: url('../assets/chairlift.jpg');
+                    background-image: url("../assets/chairlift.jpg");
                     height: 230px;
                     background-size: cover;
                     background-repeat: no-repeat;

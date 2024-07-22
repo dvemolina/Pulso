@@ -349,4 +349,24 @@ function addSportCardIcon(sportsArray, sportName) {
     return ''
 }
 
+function getDatesInRange(startDate, endDate) {
+    const dates = [];
+    let currentDate = new Date(startDate);
+
+    endDate = new Date(endDate);
+
+    while (currentDate <= endDate) {
+        dates.push(formatDate(currentDate));
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
+    return dates;
+}
+
+function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
 
