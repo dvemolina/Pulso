@@ -112,7 +112,7 @@ const instructorList = document.querySelector('#instructor__section');
 
 const fetchBtn = document.querySelector('#fetch-btn-mainfinder');
 const instructorWrapper = document.querySelector('#instructor-wrapper');
-const pulso = 'http://localhost:4555/.netlify/functions/api/finder/';
+const pulso = 'https://pulso-finder.netlify.app/.netlify/functions/api/finder/';
 
 fetchBtn.addEventListener('click', async () => {
     const instructorLoader = document.querySelector('#instructor-loader-wrapper');
