@@ -76,6 +76,7 @@ btnFs.addEventListener('click', async () => {
         urlParams.append('resort', resortFs);
 
         const urlString = `${pulso}instructors?${urlParams.toString()}`;
+        console.log('UR STRING: ', urlString)
         const response = await fetch(urlString);
         if (!response.ok) {
             throw new Error(`Error: ${response.statusText}`);
