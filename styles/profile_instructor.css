@@ -163,8 +163,10 @@ body {
                         }
                         .sport-item {
                             display: flex;
-                            flex-direction: column;
+                            flex-direction: row;
                             align-items: center;
+                            font-weight: 600;
+                            gap: 7px;
                         }
                         
                         .mods-item {
@@ -183,8 +185,8 @@ body {
                             align-items: center;
                         }
                             .sport-img {
-                                max-width: 75px;
-                                max-height: 75px;
+                                max-width: 33px;
+                                max-height: 33px;
                             }
                             .mod-img {
                                 max-width: 55px;
