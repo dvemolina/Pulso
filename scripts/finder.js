@@ -71,12 +71,12 @@ btnFs.addEventListener('click', async () => {
         firstSearchDiv.style.display = 'none';
         loaderWrapper.style.display = 'flex';
         const urlParams = new URLSearchParams();
-        sportsFs.forEach(sport => urlParams.append('sports', sport));
-        dateRange.forEach(date => urlParams.append('dates', new Date(date).toISOString().split('T')[0]));
-        urlParams.append('resort', resortFs);
+        sportsFs.forEach(sport => urlParams.append('sports', encodeURIComponent(sport)));
+        dateRange.forEach(date => urlParams.append('dates', encodeURIComponent(new Date(date).toISOString().split('T')[0])));
+        urlParams.append('resort', encodeURIComponent(resortFs));
 
         const urlString = `${pulso}instructors?${urlParams.toString()}`;
-        console.log('UR STRING: ', urlString)
+        console.log('URL STRING: ', urlString)
         const response = await fetch(urlString);
         if (!response.ok) {
             throw new Error(`Error: ${response.statusText}`);
@@ -112,7 +112,7 @@ const instructorList = document.querySelector('#instructor__section');
 
 const fetchBtn = document.querySelector('#fetch-btn-mainfinder');
 const instructorWrapper = document.querySelector('#instructor-wrapper');
-const pulso = 'https://pulso-finder.netlify.app/.netlify/functions/api/finder/';
+const pulso = 'http://localhost:4555/.netlify/functions/api/finder/';
 
 fetchBtn.addEventListener('click', async () => {
     const instructorLoader = document.querySelector('#instructor-loader-wrapper');
