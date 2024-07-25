@@ -116,7 +116,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 reviewsDiv.innerHTML = `<p id="no-reviews">Yo te cuido en la Montaña, tu me apoyas con tu Valoración! Reserva conmigo y ayúdame a crecer! </p>`
             }
 
-            location.innerText = instructorData.resort || ' - ';
+            if (instructorData.resort) {
+                const instructorResort = instructorData.resort;
+                const matchingResort = resortsList.find(resort => resort.value === instructorResort)
+                if (matchingResort) {
+                    resort.innerText = matchingResort.text
+                    location.innerText = matchingResort.text
+                } else {
+                    resort.innerText = ' Sin especificar ';
+                    location.innerText = ' Sin especificar ';
+                }
+
+            } else {
+                resort.innerText = ' Sin especificar ';
+                location.innerText = ' Sin especificar ';
+            }
+
+
             services.innerText = instructorData.services_txt || 'Aún estoy organizando mis servicios pero no dudes en Reservar para contactar conmigo y obtener más información!';
             languages.innerText = instructorData.languages;
             seasons.innerText = `${instructorData.season_num}+` || ' - ';
