@@ -1,3 +1,9 @@
+const logoBubble = document.querySelector('#logo-bubble')
+
+logoBubble.addEventListener('click', () => {
+    window.location = 'https://pulsodenieve.com'
+})
+
 const selectorResortFS = '#resort_fs'
 const selectorResortBB = '#big-bub-location'
 const selectorResortDia = '#dia-bub-location'
