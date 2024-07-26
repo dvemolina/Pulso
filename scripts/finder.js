@@ -76,7 +76,7 @@ btnFs.addEventListener('click', async () => {
         urlParams.append('resort', encodeURIComponent(resortFs));
 
         const urlString = `${pulso}instructors?${urlParams.toString()}`;
-        console.log('URL STRING: ', urlString)
+        
         const response = await fetch(urlString);
         if (!response.ok) {
             throw new Error(`Error: ${response.statusText}`);
@@ -85,6 +85,7 @@ btnFs.addEventListener('click', async () => {
         const instructors = data.data;
 
         if (instructors.length) {
+            shuffleArray(instructors)
             instructors.forEach(instructor => {
                 const instructorCard = createInstructorCard(instructor);
                 instructorWrapper.appendChild(instructorCard);
