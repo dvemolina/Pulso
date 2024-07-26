@@ -7,7 +7,6 @@ const searchBtn = document.getElementById('dia-bub-btn')
 const dialogBubble = document.getElementById('dialog-bubble');
 const searchDialog = document.getElementById('dialog-search-div')
 const optionsDialog = document.getElementById('options-dialog');
-const helpDialog = document.getElementById('help-dialog');
 const diaBubErrorMsg = document.getElementById('dia-bub-error')
 
 searchBtn.addEventListener('click', async () => {
@@ -108,13 +107,11 @@ dialogSearchBtn.addEventListener('click', () => {
     dialogBubble.showModal();
     searchDialog.style.display = 'flex'
     optionsDialog.style.display = 'none';
-    helpDialog.style.display = 'none';
 })
 optionsBtn.addEventListener('click', () => {
     dialogBubble.showModal();
     searchDialog.style.display = 'none'
     optionsDialog.style.display = 'flex';
-    helpDialog.style.display = 'none';
 })
 
 //Filter System
@@ -122,16 +119,16 @@ optionsBtn.addEventListener('click', () => {
 function getSelectedFilters() {
     const filters = {
         disciplines: [],
-        persons: optionsDialog.getElementById('persons').value,
-        languages: optionsDialog.getElementById('languages').value,
-        level: optionsDialog.getElementById('level').value,
-        ageGroup: optionsDialog.querySelector('select[name="age_group"]').value,
-        currency: optionsDialog.getElementById('currency').value,
-        maxPriceHour: optionsDialog.getElementById('precio_max_hora').value,
-        maxPriceDay: optionsDialog.getElementById('precio_max_dia').value,
+        persons: document.getElementById('persons').value,
+        languages: document.getElementById('languages').value,
+        level: document.getElementById('level').value,
+        ageGroup: document.querySelector('select[name="age_group"]').value,
+        currency: document.getElementById('currency').value,
+        maxPriceHour: document.getElementById('precio_max_hora').value,
+        maxPriceDay: document.getElementById('precio_max_dia').value,
     };
 
-    optionsDialog.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+    document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
         filters.disciplines.push(checkbox.name);
     });
 
