@@ -1,52 +1,13 @@
-window.onload = checkLoginStatus;
-
-function checkLoginStatus() {
-    const authToken = getCookie('pulso_token');
-    const loginId = getCookie('id');
-    const authTokenExpiry = getCookieExpiry('pulso_token');
-
-    console.log('Auth Token:', authToken);
-    console.log('Login ID:', loginId);
-    console.log('Auth Token Expiry:', authTokenExpiry);
-
-    if (authToken && loginId && authTokenExpiry) {
-        const now = new Date();
-        const expiryDate = new Date(authTokenExpiry);
-
-        if (now < expiryDate && (expiryDate - now) > 30 * 60 * 1000) {
-            window.location.href = '/dashboard';
-            return;
-        }
-    }
-
-    document.getElementById('login-form').style.display = 'block';
-}
-
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    return null;
-}
-
-function getCookieExpiry(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) {
-        const cookieString = parts.pop().split(';').shift();
-        const expiryPart = parts.pop().split('Expires=');
-        if (expiryPart.length === 2) {
-            return expiryPart[1].trim();
-        }
-    }
-    return null;
-}
-
 const idInput = document.querySelector('.login-id');
 const pwdInput = document.querySelector('.login-pwd');
 const loginBtn = document.querySelector('.login-btn');
 const loginForm = document.getElementById('login-form');
-const errorMsg = document.getElementById('error-msg')
+const errorMsg = document.getElementById('error-msg');
+const loginLogo = document.querySelector('.login-logo');
+
+loginLogo.addEventListener('click', () => {
+    window.location = 'https://pulsodenieve.com'
+})
 
 loginBtn.addEventListener('click', async (e) => {
     e.preventDefault()
