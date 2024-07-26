@@ -117,3 +117,27 @@ function formatDate(date) {
   const day = String(date.getDate()).padStart(2, '0');
   return `${year}-${month}-${day}`;
 }
+
+const MAX_PROFILES = 50; // Set a limit for how many profiles you want to store
+
+function setInstructorData(key, data) {
+    let keys = JSON.parse(sessionStorage.getItem('instructor_keys')) || [];
+    if (keys.includes(key)) {
+        keys = keys.filter(k => k !== key);
+        sessionStorage.removeItem(key);
+    }
+
+    keys.push(key);
+
+    if (keys.length > MAX_PROFILES) {
+        const oldestKey = keys.shift();
+        sessionStorage.removeItem(oldestKey);
+    }
+
+    sessionStorage.setItem('instructor_keys', JSON.stringify(keys));
+    sessionStorage.setItem(key, JSON.stringify(data));
+}
+
+function getInstructorData(key) {
+    return JSON.parse(sessionStorage.getItem(`instructor_${key}`));
+}

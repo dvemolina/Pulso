@@ -81,6 +81,7 @@ searchBtn.addEventListener('click', async () => {
             const instructors = data.data;
 
             if (instructors.length) {
+                shuffleArray(instructors)
                 instructors.forEach(instructor => {
                     const instructorCard = createInstructorCard(instructor);
                     instructorWrapper.appendChild(instructorCard);
@@ -94,9 +95,10 @@ searchBtn.addEventListener('click', async () => {
             console.error('Error with the API', error);
         }
     } else if (optionsDialog.style.display === 'flex') {
-        console.log('FILTER INSTRUCTORS')
+        const filters =  getSelectedFilters;
+        filterInstructorCards(filters)
     }
-
+    
 })
 
 closeSearchDialogBtn.addEventListener('click', () => {
@@ -115,6 +117,80 @@ optionsBtn.addEventListener('click', () => {
     helpDialog.style.display = 'none';
 })
 
+//Filter System
+
+function getSelectedFilters() {
+    const filters = {
+        disciplines: [],
+        persons: optionsDialog.getElementById('persons').value,
+        languages: optionsDialog.getElementById('languages').value,
+        level: optionsDialog.getElementById('level').value,
+        ageGroup: optionsDialog.querySelector('select[name="age_group"]').value,
+        currency: optionsDialog.getElementById('currency').value,
+        maxPriceHour: optionsDialog.getElementById('precio_max_hora').value,
+        maxPriceDay: optionsDialog.getElementById('precio_max_dia').value,
+    };
+
+    optionsDialog.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+        filters.disciplines.push(checkbox.name);
+    });
+
+    return filters;
+}
+
+function filterInstructorCards(filters) {
+    const cards = document.querySelectorAll('.card__gp');
+
+    cards.forEach(card => {
+        const instructorId = card.querySelector('.id-number').textContent;
+        const instructor = getInstructorData(`instructor_${instructorId}`);
+
+        let showCard = true;
+
+        // Check disciplines
+        if (filters.disciplines.length && !filters.disciplines.some(discipline => instructor.sports.includes(discipline))) {
+            showCard = false;
+        }
+
+        // Check persons
+        if (filters.persons && instructor.persons !== filters.persons) {
+            showCard = false;
+        }
+
+        // Check languages
+        if (filters.languages && !instructor.languages.includes(filters.languages)) {
+            showCard = false;
+        }
+
+        // Check level
+        if (filters.level && instructor.client_level !== filters.level) {
+            showCard = false;
+        }
+
+        // Check age group
+        if (filters.ageGroup && instructor.age_group !== filters.ageGroup) {
+            showCard = false;
+        }
+
+        // Check currency
+        if (filters.currency && instructor.currency_main !== filters.currency) {
+            showCard = false;
+        }
+
+        // Check max price per hour
+        if (filters.maxPriceHour && instructor.price_hour > filters.maxPriceHour) {
+            showCard = false;
+        }
+
+        // Check max price per day
+        if (filters.maxPriceDay && instructor.price_full > filters.maxPriceDay) {
+            showCard = false;
+        }
+
+        // Show or hide the card based on the filters
+        card.style.display = showCard ? 'block' : 'none';
+    });
+}
 
 
 
