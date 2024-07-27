@@ -94,7 +94,7 @@ searchBtn.addEventListener('click', async () => {
             console.error('Error with the API', error);
         }
     } else if (optionsDialog.style.display === 'flex') {
-        const filters =  getSelectedFilters;
+        const filters =  getSelectedFilters();
         filterInstructorCards(filters)
     }
     
