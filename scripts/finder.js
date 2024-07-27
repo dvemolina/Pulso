@@ -1,7 +1,11 @@
 const logoBubble = document.querySelector('#logo-bubble')
+const fsLogo = document.querySelector('#first-search-logo')
 
 logoBubble.addEventListener('click', () => {
-    window.location = 'https://pulsodenieve.com'
+    window.open('https://pulsodenieve.com', '_blank')
+})
+fsLogo.addEventListener('click', () => {
+    window.open('https://pulsodenieve.com', '_blank')
 })
 
 const selectorResortFS = '#resort_fs'
