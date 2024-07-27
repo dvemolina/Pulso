@@ -96,6 +96,7 @@ searchBtn.addEventListener('click', async () => {
     } else if (optionsDialog.style.display === 'flex') {
         const filters =  getSelectedFilters();
         filterInstructorCards(filters)
+        dialogBubble.close();
     }
     
 })
