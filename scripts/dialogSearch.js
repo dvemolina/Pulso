@@ -130,7 +130,7 @@ function getSelectedFilters() {
     };
 
     document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
-        filters.disciplines.push(checkbox.name);
+        filters.disciplines.push(checkbox.value);
     });
 
     return filters;
@@ -146,42 +146,47 @@ function filterInstructorCards(filters) {
         let showCard = true;
 
         // Check disciplines
-        if (filters.disciplines.length && !filters.disciplines.some(discipline => instructor.sports.includes(discipline))) {
-            showCard = false;
+        if (filters.disciplines.length) {
+            const instructorDisciplines = instructor.sports.reduce((acc, sport) => {
+                return acc.concat(sport.mods);
+            }, []);
+            if (!filters.disciplines.some(discipline => instructorDisciplines.includes(discipline))) {
+                showCard = false;
+            }
         }
 
         // Check persons
-        if (filters.persons && instructor.persons !== filters.persons) {
+        if (filters.persons && instructor.persons !== filters.persons && instructor.persons !== undefined) {
             showCard = false;
         }
 
         // Check languages
-        if (filters.languages && !instructor.languages.includes(filters.languages)) {
+        if (filters.languages && !instructor.languages.includes(filters.languages) && instructor.languages !== undefined) {
             showCard = false;
         }
 
         // Check level
-        if (filters.level && instructor.client_level !== filters.level) {
+        if (filters.level && instructor.client_level !== filters.level && instructor.client_level !== undefined) {
             showCard = false;
         }
 
         // Check age group
-        if (filters.ageGroup && instructor.age_group !== filters.ageGroup) {
+        if (filters.ageGroup && instructor.age_group !== filters.ageGroup && instructor.age_group !== undefined) {
             showCard = false;
         }
 
         // Check currency
-        if (filters.currency && instructor.currency_main !== filters.currency) {
+        if (filters.currency && instructor.currency_main !== filters.currency && instructor.currency !== undefined) {
             showCard = false;
         }
 
         // Check max price per hour
-        if (filters.maxPriceHour && instructor.price_hour > filters.maxPriceHour) {
+        if (filters.maxPriceHour && instructor.price_hour > filters.maxPriceHour && instructor.price_hour !== undefined) {
             showCard = false;
         }
 
         // Check max price per day
-        if (filters.maxPriceDay && instructor.price_full > filters.maxPriceDay) {
+        if (filters.maxPriceDay && instructor.price_full > filters.maxPriceDay && instructor.price_full !== undefined) {
             showCard = false;
         }
 
