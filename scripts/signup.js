@@ -169,17 +169,12 @@ $(document).ready(function () {
             var requirementsChecked = $('#confirm-requirements').is(':checked');
             var termsChecked = $('#agree-terms').is(':checked');
             var privacyChecked = $('#agree-privacy').is(':checked');
-            console.log('Requirements Checked:', requirementsChecked);
-            console.log('Terms Checked:', termsChecked);
-            console.log('Privacy Checked:', privacyChecked);
 
             if (!requirementsChecked || !termsChecked || !privacyChecked) {
                 isValid = false;
-                console.log('At least one checkbox is unchecked.');
                 $('#confirm-requirements, #agree-terms, #agree-privacy').addClass('is-invalid');
                 $('#submit-btn').prop('disabled', true); // Disable the button if any checkbox is unchecked
             } else {
-                console.log('All checkboxes are checked.');
                 $('#confirm-requirements, #agree-terms, #agree-privacy').removeClass('is-invalid');
                 $('#submit-btn').prop('disabled', false); // Enable the button if all checkboxes are checked
             }
